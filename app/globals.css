@@ -1,26 +1,91 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Brand palette */
+  --color-brand-900:  #1a0a08;
+  --color-brand-800:  #2c1410;
+  --color-brand-700:  #3d1a1a;
+  --color-brand-600:  #5c2e2e;
+  --color-brand-500:  #7a3f3f;
+  --color-gold-600:   #a8832a;
+  --color-gold-500:   #c9a84c;
+  --color-gold-400:   #d4b96a;
+  --color-gold-300:   #e2cc90;
+  --color-cream-50:   #fdf9f4;
+  --color-cream-100:  #f8f3eb;
+  --color-cream-200:  #f0e6d3;
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #fdf9f4;
+  --foreground: #1a0a08;
+  --card: #ffffff;
+  --card-foreground: #1a0a08;
+  --popover: #ffffff;
+  --popover-foreground: #1a0a08;
+  --primary: #3d1a1a;
+  --primary-foreground: #fdf9f4;
+  --secondary: #f0e6d3;
+  --secondary-foreground: #3d1a1a;
+  --muted: #f8f3eb;
+  --muted-foreground: #7a6050;
+  --accent: #c9a84c;
+  --accent-foreground: #1a0a08;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #e8ddd0;
+  --input: #e8ddd0;
+  --ring: #c9a84c;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Gold divider utility */
+.divider-gold {
+  width: 3rem;
+  height: 2px;
+  background: #c9a84c;
+  margin: 0 auto 1.5rem;
 }
