@@ -70,7 +70,7 @@ export default function SiteFooter({ business, homepage, socialLinks }: SiteFoot
                 { label: 'Our Menu', href: '/#menu'     },
                 { label: 'Catering', href: '/catering'  },
                 { label: 'Reviews',  href: '/#testimonials' },
-                { label: 'Contact',  href: '/#contact'  },
+                { label: 'Contact',  href: '/contact'   },
               ].map(({ label, href }) => (
                 <li key={label}>
                   <Link

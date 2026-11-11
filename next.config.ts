@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
     // without going through the /_next/image proxy (which can fail to reach
     // the local Laravel server from inside the Next.js process).
     unoptimized: isDev,
+    // Allow quality=90 used throughout the codebase (default list only includes 75)
+    qualities: [75, 90],
     remotePatterns: [
       {
         // Laravel dev server via 127.0.0.1 (matches APP_URL in .env)
@@ -25,9 +27,9 @@ const nextConfig: NextConfig = {
         pathname: '/storage/**',
       },
       {
-        // Production — update hostname before deploying
+        // Production backend — mgt.kendallkitchen.biz
         protocol: 'https',
-        hostname: '**.kendallkitchen.com',
+        hostname: '**.kendallkitchen.biz',
         pathname: '/storage/**',
       },
     ],
